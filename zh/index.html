@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tautiu — 小小的獨立 App 工作室</title>
+<meta name="description" content="tautiu（透抽）是台語的魷魚。一隻小透抽、六隻忙碌的觸手 — 獨立開發的 Mac 與 iPhone App：DeepSRT、Foldic、Recilic、Ripplic、Mergic、Nookic。">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FBF0E3">
+<meta property="og:title" content="tautiu — 小小的獨立 App 工作室">
+<meta property="og:description" content="一隻小透抽、六隻忙碌的觸手。用心打造的獨立 Mac 與 iPhone App。">
+<meta property="og:image" content="https://tautiu.dev/assets/logo-512.png">
+<meta property="og:url" content="https://tautiu.dev/zh/">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="https://tautiu.dev/">
+<link rel="alternate" hreflang="zh-Hant" href="https://tautiu.dev/zh/">
+<link rel="alternate" hreflang="ja" href="https://tautiu.dev/ja/">
+<link rel="alternate" hreflang="ko" href="https://tautiu.dev/ko/">
+<link rel="alternate" hreflang="x-default" href="https://tautiu.dev/">
+<style>
+  :root {
+    --cream: #FBF0E3;
+    --cream-deep: #F5E3CC;
+    --card: #FFFDF9;
+    --ink: #5C4433;
+    --ink-soft: #8A705C;
+    --lavender: #B79CD8;
+    --lavender-soft: #E4D8F1;
+    --blush: #F6C6CE;
+    --shadow: 0 4px 20px rgba(92, 68, 51, 0.08);
+    --shadow-hover: 0 12px 32px rgba(92, 68, 51, 0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", "PingFang TC", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Language switcher ────────────────── */
+  .lang {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: flex;
+    gap: 4px;
+    background: var(--card);
+    border: 1.5px solid rgba(183, 156, 216, 0.25);
+    border-radius: 99px;
+    padding: 4px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+  }
+  .lang a {
+    display: block;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink-soft);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .lang a:hover { background: var(--cream-deep); color: var(--ink); }
+  .lang a.active { background: var(--lavender); color: #fff; }
+
+  /* ── Hero ─────────────────────────────── */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 24px 40px;
+    text-align: center;
+  }
+  .hero .logo {
+    width: 168px;
+    height: 168px;
+    border-radius: 38px;
+    box-shadow: var(--shadow);
+    animation: bob 5s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-10px) rotate(-2deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero .logo { animation: none; }
+  }
+  .hero h1 {
+    margin-top: 28px;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .hero h1 .tld { color: var(--lavender); font-weight: 600; }
+  .hero .tagline {
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .hero .story {
+    margin: 20px auto 0;
+    max-width: 480px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .hero .story .zh { color: var(--lavender); font-weight: 600; }
+
+  /* suction-cup divider */
+  .cups {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 40px 0 8px;
+  }
+  .cups span {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--lavender-soft);
+    border: 2.5px solid var(--lavender);
+    opacity: 0.7;
+  }
+  .cups span:nth-child(even) { transform: translateY(6px); }
+
+  /* ── App grid ─────────────────────────── */
+  .apps {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 24px 72px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .app-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--card);
+    border: 1.5px solid rgba(183, 156, 216, 0.18);
+    border-radius: 24px;
+    padding: 26px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .app-card:hover, .app-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent, var(--lavender));
+    outline: none;
+  }
+  .app-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .app-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(92, 68, 51, 0.12);
+  }
+  /* macOS-style icons ship with transparent margins + built-in rounding */
+  .app-icon.pad {
+    width: 62px; height: 62px;
+    margin: -3px;
+    border-radius: 0;
+    box-shadow: none;
+    filter: drop-shadow(0 2px 5px rgba(92, 68, 51, 0.18));
+  }
+  .app-card:hover .app-icon,
+  .app-card:focus-visible .app-icon {
+    animation: icon-bob 2.2s ease-in-out infinite;
+  }
+  @keyframes icon-bob {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    50%      { transform: translateY(-5px) rotate(-3deg) scale(1.06); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app-card:hover .app-icon,
+    .app-card:focus-visible .app-icon { animation: none; }
+  }
+  .app-name {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .app-platform {
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--cream-deep);
+    border-radius: 99px;
+    padding: 2px 10px;
+  }
+  .app-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .ribbon {
+    position: absolute;
+    top: 22px;
+    right: -38px;
+    transform: rotate(45deg);
+    width: 150px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--lavender);
+    padding: 4px 0;
+    box-shadow: 0 2px 6px rgba(92, 68, 51, 0.18);
+    pointer-events: none;
+  }
+  .app-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    flex-grow: 1;
+  }
+  .app-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent, var(--lavender));
+  }
+  .app-link::after {
+    content: " →";
+    transition: margin-left 0.2s ease;
+  }
+  .app-card:hover .app-link::after { margin-left: 4px; }
+
+  /* ── Footer ───────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 32px 24px 56px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  footer .squid { font-size: 18px; }
+
+  @media (max-width: 480px) {
+    .hero { padding-top: 48px; }
+    .hero .logo { width: 128px; height: 128px; border-radius: 30px; }
+    .hero h1 { font-size: 42px; }
+    .hero .tagline { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="lang" aria-label="Language">
+  <a href="../" data-lang="en">EN</a>
+  <a href="../zh/" data-lang="zh" class="active">中文</a>
+  <a href="../ja/" data-lang="ja">日本語</a>
+  <a href="../ko/" data-lang="ko">한국어</a>
+</nav>
+<script>
+  // Remember an explicit language choice.
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest(".lang a");
+    if (!link) return;
+    try { localStorage.setItem("tautiu-lang", link.getAttribute("data-lang")); } catch (e) {}
+  });
+</script>
+
+<header class="hero">
+  <img class="logo" src="../assets/logo-512.png" alt="tautiu — a cute cream squid with lavender fins" width="168" height="168">
+  <h1>tautiu<span class="tld">.dev</span></h1>
+  <p class="tagline">小小的獨立 App 工作室</p>
+  <p class="story">
+    <span class="zh">tautiu（透抽）</span>是台語的魷魚 —
+    一隻小透抽、六隻忙碌的觸手，
+    每隻都抓著一個為你的 Mac 和 iPhone 打造的 App。
+  </p>
+  <div class="cups" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</header>
+
+<main class="apps">
+
+  <a class="app-card" href="https://deepsrt.com/zh/" style="--accent:#35608F">
+    <div class="app-head">
+      <img class="app-icon pad" src="../assets/deepsrt.png" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">DeepSRT</div>
+        <span class="app-platform">Mac · iOS</span>
+      </div>
+    </div>
+    <p class="app-desc">任何 YouTube 影片，立即生成 AI 摘要與乾淨可點擊的逐字稿 — 原生 Mac 體驗。</p>
+    <span class="app-link">deepsrt.com</span>
+  </a>
+
+  <a class="app-card" href="https://foldic.app/zh/" style="--accent:#7E9440">
+    <div class="app-head">
+      <img class="app-icon" src="../assets/foldic.png" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">Foldic</div>
+        <span class="app-platform">Mac · iPhone</span>
+      </div>
+    </div>
+    <p class="app-desc">把你的「照片」相簿鏡像成真實資料夾 — 在 Mac 上自動執行，或直接從 iPhone 存進 USB-C 隨身碟。</p>
+    <span class="app-link">foldic.app</span>
+  </a>
+
+  <a class="app-card" href="https://recilic.app/zh/" style="--accent:#3EA576">
+    <div class="app-head">
+      <img class="app-icon" src="../assets/recilic.svg" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">Recilic</div>
+        <span class="app-platform">Mac</span>
+      </div>
+    </div>
+    <p class="app-desc">你的私有備份網 — 把手邊的 Mac 和硬碟編織成一個端到端加密的備份池。</p>
+    <span class="app-link">recilic.app</span>
+  </a>
+
+  <a class="app-card" href="https://ripplic.app/zh/" style="--accent:#3E8FB5">
+    <div class="app-head">
+      <img class="app-icon" src="../assets/ripplic.svg" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">Ripplic</div>
+        <span class="app-platform">Mac</span>
+      </div>
+    </div>
+    <p class="app-desc">從資料夾單向同步到你自己的雲端儲存 — S3、R2、GCS、B2 以及任何 S3 相容服務。</p>
+    <span class="app-link">ripplic.app</span>
+  </a>
+
+  <a class="app-card" href="https://mergic.foldic.app/zh/" style="--accent:#7C6BB8">
+    <div class="app-head">
+      <img class="app-icon pad" src="../assets/mergic.png" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">Mergic</div>
+        <span class="app-platform">Mac</span>
+      </div>
+    </div>
+    <p class="app-desc">安全地把一個資料夾合併進另一個，MD5 驗證的衝突處理。再也不弄丟檔案。</p>
+    <span class="app-link">mergic.foldic.app</span>
+  </a>
+
+  <a class="app-card" href="https://nookic.app/zh/" style="--accent:#4A443C">
+    <span class="ribbon">即將推出</span>
+    <div class="app-head">
+      <img class="app-icon pad" src="../assets/nookic.png" alt="" width="56" height="56">
+      <div>
+        <div class="app-name">Nookic</div>
+        <span class="app-platform">iPhone</span>
+      </div>
+    </div>
+    <p class="app-desc">為你看過的內容留一個小角落 — 把貼文以你看到的樣子，留存在你自己的 iPhone。</p>
+    <span class="app-link">nookic.app</span>
+  </a>
+
+</main>
+
+<footer>
+  <span class="squid">🦑</span> 一隻小透抽做的 · © 2026 tautiu
+</footer>
+
+</body>
+</html>
