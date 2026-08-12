@@ -25,7 +25,7 @@ EN = {
     "mergic": "Merge one folder into another safely, with MD5-verified conflict handling. Never lose a file again.",
     "nookic": "Your own nook for what you've already seen — keep posts exactly the way you saw them, on your own iPhone.",
     "ribbon": "coming soon",
-    "footer": "made by one small squid · © 2026 tautiu",
+    "footer": 'made by one small squid · © 2026 tautiu · <a href="mailto:tautiu.dev@gmail.com">contact us</a>',
 }
 
 LANGS = {
@@ -46,7 +46,7 @@ LANGS = {
         "mergic": "安全地把一個資料夾合併進另一個，MD5 驗證的衝突處理。再也不弄丟檔案。",
         "nookic": "為你看過的內容留一個小角落 — 把貼文以你看到的樣子，留存在你自己的 iPhone。",
         "ribbon": "即將推出",
-        "footer": "一隻小透抽做的 · © 2026 tautiu",
+        "footer": '一隻小透抽做的 · © 2026 tautiu · <a href="mailto:tautiu.dev@gmail.com">聯絡我們</a>',
     },
     "ja": {
         "html_lang": "ja",
@@ -65,7 +65,7 @@ LANGS = {
         "mergic": "フォルダを安全にマージ。MD5 検証つきの競合処理で、ファイルをもう失わない。",
         "nookic": "見たままの投稿を、自分の iPhone にそのまま残しておく小さな居場所。",
         "ribbon": "近日公開",
-        "footer": "小さなイカがつくりました · © 2026 tautiu",
+        "footer": '小さなイカがつくりました · © 2026 tautiu · <a href="mailto:tautiu.dev@gmail.com">お問い合わせ</a>',
     },
     "ko": {
         "html_lang": "ko",
@@ -84,7 +84,7 @@ LANGS = {
         "mergic": "폴더를 안전하게 병합. MD5 검증 충돌 처리로 파일을 잃지 않아요.",
         "nookic": "본 그대로의 게시물을 내 iPhone에 간직하는 작은 공간.",
         "ribbon": "출시 예정",
-        "footer": "작은 오징어가 만들었어요 · © 2026 tautiu",
+        "footer": '작은 오징어가 만들었어요 · © 2026 tautiu · <a href="mailto:tautiu.dev@gmail.com">문의하기</a>',
     },
 }
 
