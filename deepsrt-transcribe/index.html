@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSRT Transcribe — 影片轉台灣繁中字幕</title>
+<meta name="description" content="把影片拖進來，得到一份台灣繁中 SRT 字幕。Apple 裝置端語音辨識 + Gemini 繁中校對，音訊完全不離開你的 Mac。">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FBF0E3">
+<meta property="og:title" content="DeepSRT Transcribe — 影片轉台灣繁中字幕">
+<meta property="og:description" content="把影片拖進來，得到一份台灣繁中 SRT 字幕。音訊完全在本機處理。">
+<meta property="og:image" content="https://tautiu.dev/assets/deepsrt-transcribe-hero.png">
+<meta property="og:url" content="https://tautiu.dev/deepsrt-transcribe/">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --cream: #FBF0E3;
+    --cream-deep: #F5E3CC;
+    --card: #FFFDF9;
+    --ink: #5C4433;
+    --ink-soft: #8A705C;
+    --lavender: #B79CD8;
+    --accent: #35548F;
+    --shadow: 0 4px 20px rgba(92, 68, 51, 0.08);
+    --shadow-hover: 0 12px 32px rgba(92, 68, 51, 0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", "PingFang TC", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  .home {
+    position: absolute; top: 18px; left: 18px;
+    display: inline-block; padding: 6px 14px;
+    background: var(--card);
+    border: 1.5px solid rgba(183, 156, 216, 0.25);
+    border-radius: 99px;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    color: var(--ink-soft); box-shadow: var(--shadow);
+  }
+  .home:hover { background: var(--cream-deep); color: var(--ink); }
+
+  header { text-align: center; padding: 72px 24px 8px; }
+  header img.icon {
+    width: 132px; height: 132px;
+    filter: drop-shadow(0 6px 18px rgba(92, 68, 51, 0.22));
+  }
+  h1 { font-size: 34px; letter-spacing: -0.5px; margin-top: 18px; }
+  .tagline { color: var(--ink-soft); font-size: 18px; margin-top: 6px; }
+  .badges { margin-top: 18px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    background: var(--card); border: 1.5px solid rgba(183, 156, 216, 0.25);
+    border-radius: 99px; padding: 4px 14px; font-size: 13px; color: var(--ink-soft);
+  }
+
+  .hero-shot {
+    margin: 34px auto 0; display: block; width: 100%; height: auto;
+    border-radius: 18px; box-shadow: var(--shadow-hover);
+    border: 1.5px solid rgba(183, 156, 216, 0.18);
+  }
+
+  h2 { font-size: 22px; margin: 54px 0 4px; }
+  p.lead { color: var(--ink-soft); }
+
+  .steps { display: grid; gap: 14px; margin-top: 22px; }
+  @media (min-width: 700px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  .step {
+    background: var(--card); border: 1.5px solid rgba(183, 156, 216, 0.18);
+    border-radius: 20px; padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .step .n {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 99px;
+    background: var(--accent); color: #fff; font-size: 13px; font-weight: 700;
+  }
+  .step h3 { font-size: 17px; margin: 10px 0 4px; }
+  .step p { font-size: 15px; color: var(--ink-soft); }
+
+  ul.features { list-style: none; margin-top: 18px; display: grid; gap: 10px; }
+  ul.features li { padding-left: 26px; position: relative; }
+  ul.features li::before {
+    content: "◆"; position: absolute; left: 0; color: var(--lavender); font-size: 13px; top: 3px;
+  }
+
+  .privacy-note {
+    margin-top: 24px; background: var(--card);
+    border: 1.5px solid rgba(53, 84, 143, 0.22); border-left: 4px solid var(--accent);
+    border-radius: 16px; padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .privacy-note strong { color: var(--accent); }
+
+  footer {
+    text-align: center; padding: 56px 24px 40px; color: var(--ink-soft); font-size: 14px;
+  }
+  footer a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<a class="home" href="/">← tautiu</a>
+
+<header>
+  <img class="icon" src="../assets/deepsrt-transcribe.png" alt="DeepSRT Transcribe" width="132" height="132">
+  <h1>DeepSRT Transcribe</h1>
+  <p class="tagline">拖一段影片進來，得到一份台灣繁中 SRT 字幕。</p>
+  <p class="tagline" style="font-size:16px">Apple 語音模型完全本地運算，影像聲音全部離線處理 —
+  6 分鐘影片只要 10 秒 — 再由最強 Gemini 模型優化語言，Ground with Google Search 自動校正。</p>
+  <div class="badges">
+    <span class="badge">macOS 26+</span>
+    <span class="badge">Apple Silicon &amp; Intel</span>
+    <span class="badge">音訊只在本機處理</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <img class="hero-shot" src="../assets/deepsrt-transcribe-hero.png"
+       alt="DeepSRT Transcribe 視窗：左邊影片與即時字幕，右邊逐字稿側邊欄" width="1280" height="800">
+
+  <h2>四個步驟，一條管線</h2>
+  <p class="lead">拖進來之後就不用再做什麼——但每一步都看得到在做什麼。</p>
+  <div class="steps">
+    <div class="step">
+      <span class="n">1</span>
+      <h3>擷取音訊</h3>
+      <p>AVFoundation 直接解碼，不需要安裝 ffmpeg。mp4 / mov / m4v / 音訊檔都可以。</p>
+    </div>
+    <div class="step">
+      <span class="n">2</span>
+      <h3>語音辨識</h3>
+      <p>用 macOS 26 的 SpeechAnalyzer，在你的 Mac 上跑完。音訊不會上傳到任何地方。
+      實測 5.5 分鐘的影片：辨識 3 秒，加上繁中校對總共 6.5 秒。</p>
+    </div>
+    <div class="step">
+      <span class="n">3</span>
+      <h3>切句斷行</h3>
+      <p>斷點一律問系統的中文分詞器，所以「高級」「專注力」不會被拆到兩行。</p>
+    </div>
+    <div class="step">
+      <span class="n">4</span>
+      <h3>繁中校對</h3>
+      <p>自備 Gemini 金鑰，負責簡→繁、修正同音錯字、補標點。可以開啟 Google 搜尋查證專有名詞。</p>
+    </div>
+  </div>
+
+  <h2>做了什麼，也刻意不做什麼</h2>
+  <ul class="features">
+    <li><strong>逐字稿忠於原話。</strong>只做簡→繁與修正辨識錯誤，不會把「視頻」改成「影片」，也不會展開簡稱。</li>
+    <li><strong>邊看邊改。</strong>左邊影片、右邊逐字稿；播放時目前那一句會在側邊欄同步標示，點任一句就跳到那個時間。</li>
+    <li><strong>字幕看起來就像成品。</strong>畫面上的斷行寬度跟輸出的 SRT 一致；大小（<code>+</code> / <code>−</code>）、位置（拖曳）、寬度、底色與透明度、背景樣式都能調。</li>
+    <li><strong>沒有金鑰也能用。</strong>沒設定 Gemini 金鑰時，改用內建的簡繁轉換，字幕照樣產得出來。</li>
+    <li><strong>輸出 SRT。</strong>標準 SRT 檔，丟進任何播放器或剪輯軟體都認得。</li>
+  </ul>
+
+  <div class="privacy-note">
+    <p><strong>你的影片留在你的 Mac 上。</strong>音訊的解碼與語音辨識完全在本機完成，不會上傳。
+    只有在你自己填入 Gemini 金鑰、啟用繁中校對時，才會把<strong>字幕文字</strong>送去 Google 的 API——
+    永遠不含時間碼、不含音訊、不含影片。詳情見 <a href="/privacy/">隱私權政策</a>。</p>
+  </div>
+
+  <h2>取得</h2>
+  <p class="lead">Mac App Store 審核中。上架後這裡會放下載連結。</p>
+</div>
+
+<footer>
+  <span>🦑</span> made by one small squid · © 2026 tautiu ·
+  <a href="/privacy/">隱私權政策</a> ·
+  <a href="mailto:tautiu.dev@gmail.com">contact us</a>
+</footer>
+
+</body>
+</html>

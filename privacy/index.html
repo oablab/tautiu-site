@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — tautiu</title>
+<meta name="description" content="Privacy policy for tautiu apps: DeepSRT Transcribe, Foldic, Recilic, Ripplic, Mergic, Nookic, DeepSRT.">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FBF0E3">
+<meta property="og:title" content="Privacy Policy — tautiu">
+<meta property="og:description" content="What tautiu apps do and do not collect.">
+<meta property="og:url" content="https://tautiu.dev/privacy/">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --cream: #FBF0E3;
+    --cream-deep: #F5E3CC;
+    --card: #FFFDF9;
+    --ink: #5C4433;
+    --ink-soft: #8A705C;
+    --lavender: #B79CD8;
+    --accent: #35548F;
+    --shadow: 0 4px 20px rgba(92, 68, 51, 0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", "PingFang TC", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 40px; }
+  .home {
+    position: absolute; top: 18px; left: 18px;
+    display: inline-block; padding: 6px 14px;
+    background: var(--card);
+    border: 1.5px solid rgba(183, 156, 216, 0.25);
+    border-radius: 99px;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    color: var(--ink-soft); box-shadow: var(--shadow);
+  }
+  .home:hover { background: var(--cream-deep); color: var(--ink); }
+  header { text-align: center; padding: 76px 24px 6px; }
+  h1 { font-size: 32px; letter-spacing: -0.5px; }
+  .updated { color: var(--ink-soft); font-size: 15px; margin-top: 6px; }
+  h2 { font-size: 21px; margin: 40px 0 6px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  p, li { color: var(--ink); }
+  p { margin-top: 10px; }
+  ul { margin: 10px 0 0 22px; }
+  li { margin-top: 6px; }
+  .card {
+    background: var(--card); border: 1.5px solid rgba(183, 156, 216, 0.18);
+    border-radius: 20px; padding: 22px 24px; box-shadow: var(--shadow); margin-top: 18px;
+  }
+  .headline {
+    border-left: 4px solid var(--accent);
+    border-color: rgba(53, 84, 143, 0.22); border-left-color: var(--accent);
+  }
+  .headline strong { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(183, 156, 216, 0.25); vertical-align: top; }
+  th { color: var(--ink-soft); font-weight: 700; }
+  code { background: var(--cream-deep); padding: 1px 6px; border-radius: 6px; font-size: 14px; }
+  footer { text-align: center; padding: 48px 24px 40px; color: var(--ink-soft); font-size: 14px; }
+  footer a, .wrap a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<a class="home" href="/">← tautiu</a>
+
+<header>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 19 August 2026</p>
+</header>
+
+<div class="wrap">
+
+  <div class="card headline">
+    <p><strong>tautiu apps do not collect your personal data.</strong> There are no accounts, no analytics
+    SDKs, no advertising identifiers, and no tracking across apps or websites. We operate no servers that
+    receive your content.</p>
+  </div>
+
+  <p>This policy covers the apps published by tautiu — DeepSRT Transcribe, DeepSRT, Foldic, Recilic,
+  Ripplic, Mergic and Nookic — and this website.</p>
+
+  <h2>What stays on your device</h2>
+  <p>These apps are built to do their work locally. Your files, media, transcripts and folder contents
+  are processed on your own Mac or iPhone and are not uploaded to us. We have no ability to read them.</p>
+
+  <h2>When something does leave your device</h2>
+  <p>Some features talk to a third-party service, and they only do so when you have chosen to enable them
+  and supplied your own API key. In that case you are the service's customer, and their terms and privacy
+  policy apply to that request. Nothing is routed through tautiu.</p>
+
+  <h3>DeepSRT Transcribe</h3>
+  <table>
+    <tr><th>Stage</th><th>Where it happens</th><th>What is sent</th></tr>
+    <tr>
+      <td>Audio extraction and speech recognition</td>
+      <td>Entirely on your Mac (Apple's on-device speech models)</td>
+      <td>Nothing. Audio and video never leave the machine.</td>
+    </tr>
+    <tr>
+      <td>Traditional Chinese proofreading <em>(optional)</em></td>
+      <td>Google Gemini API, using <em>your</em> API key</td>
+      <td>Subtitle text only — never timecodes, never audio, never video.</td>
+    </tr>
+    <tr>
+      <td>Proper-noun verification with Google Search <em>(optional, off by default)</em></td>
+      <td>Google Gemini API with search grounding, using <em>your</em> API key</td>
+      <td>Transcript text only.</td>
+    </tr>
+  </table>
+  <p>Without an API key the app still produces subtitles, using a conversion built into macOS. Your API
+  key is stored in the macOS Keychain on your Mac and is sent only to Google, never to us.</p>
+
+  <h2>Data we never collect</h2>
+  <ul>
+    <li>No names, email addresses or contact details</li>
+    <li>No location data</li>
+    <li>No usage analytics, crash telemetry or device fingerprints</li>
+    <li>No advertising or tracking identifiers</li>
+    <li>No purchase history beyond what Apple provides to every developer in aggregate</li>
+  </ul>
+
+  <h2>Purchases</h2>
+  <p>Apps are distributed through the App Store. Payment is handled entirely by Apple; we never see your
+  payment details. Apple provides us with aggregate sales figures that cannot identify you.</p>
+
+  <h2>Children</h2>
+  <p>These apps are productivity tools and are not directed at children. We do not knowingly collect
+  information from anyone, including children.</p>
+
+  <h2>This website</h2>
+  <p>tautiu.dev is a set of static pages hosted on GitHub Pages. There are no cookies, no analytics
+  scripts and no third-party embeds. GitHub may log requests (such as IP addresses) as part of operating
+  the service; see GitHub's privacy statement for details.</p>
+
+  <h2>Your rights</h2>
+  <p>Because we hold no personal data about you, there is nothing for us to export or delete. Data held by
+  a third-party service you connected with your own API key is subject to that service's controls, and you
+  can revoke the key at any time.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date at the top will change with it, and material changes will be noted in
+  the affected app's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <a href="mailto:tautiu.dev@gmail.com">tautiu.dev@gmail.com</a></p>
+
+</div>
+
+<footer>
+  <span>🦑</span> made by one small squid · © 2026 tautiu ·
+  <a href="mailto:tautiu.dev@gmail.com">contact us</a>
+</footer>
+
+</body>
+</html>
