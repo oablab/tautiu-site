@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the OG card for the DeepSRT Transcribe landing page.
 
-Mirrors deepsrt.com/og-card.png: navy gradient, app icon + name top-left,
+Uses the app icon palette: deep olive gradient, app icon + name top-left,
 big white headline, muted sub-line, accent domain bottom-left, and a huge
 translucent glyph bleeding off the right edge. 1200x630, the standard OG size.
 """
@@ -9,13 +9,13 @@ translucent glyph bleeding off the right edge. 1200x630, the standard OG size.
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1200, 630
-# Sampled from deepsrt.com's card: deep navy, slightly lighter toward the right.
-TOP_LEFT = (13, 28, 46)
-BOTTOM_RIGHT = (26, 53, 84)
-WHITE = (255, 255, 255)
-MUTED = (168, 186, 203)
-ACCENT = (111, 182, 228)
-WATERMARK = (28, 50, 76)
+# Deep olive sampled from the app icon, slightly lighter toward the right.
+TOP_LEFT = (38, 45, 31)
+BOTTOM_RIGHT = (80, 89, 57)
+WHITE = (255, 250, 242)
+MUTED = (218, 220, 200)
+ACCENT = (190, 201, 148)
+WATERMARK = (62, 70, 45)
 
 # PingFang.ttc no longer loads in Pillow on macOS 26 ("cannot open resource"),
 # so the TC face is Heiti TC Medium; SF Mono for the domain line, matching the
