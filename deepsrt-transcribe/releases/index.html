@@ -116,10 +116,15 @@
     color: var(--muted); background: var(--accent-tint);
   }
   .tag.latest { color: var(--bg); background: var(--accent-deep); }
+  .tag.review {
+    color: var(--accent-deep); background: transparent;
+    border: 1px dashed var(--accent);
+  }
   .release-head time { margin-left: auto; color: var(--muted); font-size: 0.88rem; }
   @media (max-width: 560px) {
     .release-head time { margin-left: 0; width: 100%; }
   }
+  .release.pending { border-style: dashed; background: transparent; }
   .release p { color: var(--muted); font-size: 0.96rem; }
   .release ul { list-style: none; margin-top: 0.2rem; }
   .release ul li {
@@ -175,10 +180,27 @@
 
 <section class="releases">
 
+  <article class="release pending">
+    <div class="release-head">
+      <span class="ver">1.1.0</span>
+      <span class="tag review">審核中</span>
+      <span class="tag">Mac</span>
+      <time datetime="2026-08-27">2026 年 8 月 27 日送審</time>
+    </div>
+    <ul>
+      <li><strong>常駐字幕框</strong>：字幕底框固定大小與位置，整段影片不再隨每句長短跳動，寬度可在設定調整。</li>
+      <li>字幕拖曳放手後不再跳位，換下一句也留在原位。</li>
+      <li>斷句改用共用的語意邊界判定：加入詞性約束，並把太短的句子往前合併。</li>
+      <li>校對後自動修補標點後只剩一兩個字的尾巴，時間碼依字元位置內插。</li>
+      <li>逐字稿編輯時按 <strong>Enter</strong> 可從游標處拆成新的一句，時間依字數比例分配。</li>
+    </ul>
+    <p style="margin-top:0.7rem">已送出 App Review，通過後會在 Mac App Store 更新。</p>
+  </article>
+
   <article class="release">
     <div class="release-head">
       <span class="ver">1.0.1</span>
-      <span class="tag latest">最新</span>
+      <span class="tag latest">目前上架</span>
       <span class="tag">Mac</span>
       <time datetime="2026-08-27">2026 年 8 月 27 日</time>
     </div>
