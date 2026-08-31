@@ -101,7 +101,7 @@
   <table>
     <tr><th>Stage</th><th>Where it happens</th><th>What is sent</th></tr>
     <tr>
-      <td>Audio extraction and speech recognition</td>
+      <td>Audio extraction and speech recognition <em>(default)</em></td>
       <td>Entirely on your Mac (Apple's on-device speech models)</td>
       <td>Nothing. Audio and video never leave the machine.</td>
     </tr>
@@ -114,6 +114,14 @@
       <td>Proper-noun verification with Google Search <em>(optional, off by default)</em></td>
       <td>Google Gemini API with search grounding, using <em>your</em> API key</td>
       <td>Transcript text only.</td>
+    </tr>
+    <tr>
+      <td>Gemini speech recognition <em>(optional, off by default)</em></td>
+      <td>Google Gemini API (<code>gemini-3.5-transcribe</code>), using <em>your</em> API key</td>
+      <td><strong>The extracted audio.</strong> This is the only setting that sends audio off your Mac.
+      Word timings still come from Apple's on-device engine; the app deletes the uploaded audio as soon
+      as transcription finishes. Google's free API tier may use submitted content to improve their
+      products; their paid tier does not. Video is never sent.</td>
     </tr>
   </table>
   <p>Without an API key the app still produces subtitles, using a conversion built into macOS. Your API

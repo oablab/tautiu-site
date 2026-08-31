@@ -57,7 +57,7 @@ def main():
 
     # Sub-line, muted — the tag line under the headline in the reference.
     sub = font(HEITI_TC, 30)
-    draw.text((72, 470), "完全本地運算 · Gemini 優化語言 · Google 搜尋自動校正", font=sub, fill=MUTED, anchor="lm")
+    draw.text((72, 470), "預設本地運算 · Gemini 優化語言 · Google 搜尋自動校正", font=sub, fill=MUTED, anchor="lm")
 
     # Domain, accent, monospaced, bottom left.
     draw.text((72, 572), "tautiu.dev/deepsrt-transcribe", font=font(SF_MONO, 26), fill=ACCENT, anchor="lm")

@@ -19,7 +19,7 @@ EN = {
     one little squid, ten busy arms, building apps
     for your Mac and iPhone.""",
     "deepsrt": "Instant AI summaries and clean, clickable transcripts for any YouTube video — natively on your Mac.",
-    "deepsrt_transcribe": "Fully offline transcription with Apple's on-device speech models — then refined by Gemini and auto-corrected with Google Search grounding.",
+    "deepsrt_transcribe": "Offline by default: transcription runs on Apple's on-device speech models — then refined by Gemini and auto-corrected with Google Search grounding.",
     "foldic": "Your Photos albums, mirrored to real folders — automatically on your Mac, or straight onto a USB-C drive from your iPhone.",
     "recilic": "Your private backup mesh — weave the Macs and drives you already own into one end-to-end encrypted backup pool.",
     "ripplic": "One-way sync from your folders to your own cloud storage — S3, R2, GCS, B2, and any S3-compatible destination.",
@@ -46,7 +46,7 @@ LANGS = {
     一隻小透抽、十隻忙碌的觸手，
     忙著為你的 Mac 和 iPhone 打造 App。""",
         "deepsrt": "任何 YouTube 影片，立即生成 AI 摘要與乾淨可點擊的逐字稿 — 原生 Mac 體驗。",
-        "deepsrt_transcribe": "Apple 語音模型完全本地運算，影像聲音全部離線處理 — 再由最強 Gemini 模型優化語言，Grounding with Google Search 自動校正。",
+        "deepsrt_transcribe": "Apple 語音模型在你的 Mac 上運算，預設影像聲音全部離線處理 — 再由最強 Gemini 模型優化語言，Grounding with Google Search 自動校正。",
         "foldic": "把你的「照片」相簿鏡像成真實資料夾 — 在 Mac 上自動執行，或直接從 iPhone 存進 USB-C 隨身碟。",
         "recilic": "你的私有備份網 — 把手邊的 Mac 和硬碟編織成一個端到端加密的備份池。",
         "ripplic": "從資料夾單向同步到你自己的雲端儲存 — S3、R2、GCS、B2 以及任何 S3 相容服務。",
@@ -71,7 +71,7 @@ LANGS = {
     小さなイカが十本の忙しい腕で、
     Mac と iPhone のためのアプリをつくっています。""",
         "deepsrt": "どんな YouTube 動画も、AI 要約とクリックできる文字起こしに — Mac ネイティブで。",
-        "deepsrt_transcribe": "Apple の音声モデルで完全オンデバイス処理、映像も音声もすべてオフライン。さらに最強の Gemini が言語を最適化し、Google 検索グラウンディングで自動補正。",
+        "deepsrt_transcribe": "Apple の音声モデルはお使いの Mac 上で処理。デフォルトでは映像も音声もすべてオフライン。さらに最強の Gemini が言語を最適化し、Google 検索グラウンディングで自動補正。",
         "foldic": "「写真」のアルバムをそのままフォルダへミラーリング — Mac では自動的に、iPhone からは USB-C ドライブへ直接。",
         "recilic": "あなただけのプライベートバックアップメッシュ — 手元の Mac とドライブを、エンドツーエンド暗号化のバックアッププールに。",
         "ripplic": "フォルダから自分のクラウドストレージへ一方向同期 — S3、R2、GCS、B2、S3 互換ストレージに対応。",
@@ -96,7 +96,7 @@ LANGS = {
     작은 오징어 한 마리가 열 개의 바쁜 다리로,
     Mac과 iPhone을 위한 앱을 만들고 있어요.""",
         "deepsrt": "어떤 YouTube 영상도 즉시 AI 요약과 클릭 가능한 자막으로 — Mac 네이티브로.",
-        "deepsrt_transcribe": "Apple 음성 모델로 완전 온디바이스 처리, 영상과 음성 모두 오프라인. 최강 Gemini 모델의 언어 최적화와 Google 검색 그라운딩으로 자동 교정까지.",
+        "deepsrt_transcribe": "Apple 음성 모델을 기기에서 처리하며 기본 설정에서는 영상과 음성이 모두 오프라인. 최강 Gemini 모델의 언어 최적화와 Google 검색 그라운딩으로 자동 교정까지.",
         "foldic": "사진 앨범을 실제 폴더로 미러링 — Mac에서는 자동으로, iPhone에서는 USB-C 드라이브로 바로.",
         "recilic": "나만의 프라이빗 백업 메시 — 가지고 있는 Mac과 드라이브를 종단간 암호화 백업 풀로.",
         "ripplic": "폴더에서 내 클라우드 스토리지로 단방향 동기화 — S3, R2, GCS, B2 및 S3 호환 스토리지 지원.",
